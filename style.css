@@ -1,0 +1,404 @@
+/* RESET */
+*,
+*::before,
+*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/************************ Utility Components *************************/
+
+:root {
+  font-size: 62.5%;
+
+  /*          Custom Properties          */
+  --primary-color: #335C67;
+  --secondary-color: #E09F3E;
+  --secondary-color-m: #e09f3ede;
+  --tertiary-color: #C297B8;
+  --tertiary-color-m: #ed97b88e;
+}
+
+body {
+  font-family: "Baloo Tamma 2", cursive;
+  line-height: 1.8;
+  display: flex;
+}
+
+/*List Items*/
+li {
+  list-style: none;
+}
+
+a:Link,
+a:visited {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+}
+
+/*              Main Styling              */
+
+/********* Side Nav ********/
+aside#side-nav {
+  position: sticky;
+  top:0;
+  left:0;
+  height: 100vh;
+}
+
+div.side-nav__content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--primary-color);
+}
+
+ div.side-nav__content--logo img {
+  width: calc(3vw + 3vh);
+  height: calc(3vw + 3vh);
+  object-fit: cover;
+ }
+
+ ul.side-nav__content--social {
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+ }
+
+ ul.side-nav__content--social a i {
+  /* 20px => 2rem => (1rem + [(10/1500) * 100]} => Dynamic Value*/
+  font-size: calc(1rem + 0.66667vw);
+  color: white;
+  padding-bottom: calc(2rem + 0.6667vw);
+  transition: color 0.35s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+ }
+
+ ul.side-nav__content--social a i:hover,
+ ul.side-nav__content--social a i:active {
+  color: var(--secondary-color);
+ }
+/********* Main Content ********/
+
+/* All content container */
+main {
+  flex: 1;
+}
+
+/********* Main Nav Header ********/
+header#header {
+  background-color: var(--secondary-color);
+  height: calc(3vw + 3vh);
+  z-index: 2; /**/
+}
+
+nav#header__main-nav {
+  height: 100%;
+}
+
+ul.header__main-nav--links{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+ul.header__main-nav--links li{
+  padding-right: 3vw;
+}
+
+ul.header__main-nav--links li a{
+  position: relative;
+  padding: 0.2rem 0.6rem;
+  font-size: calc(1rem + 0.6667vw);
+}
+
+ul.header__main-nav--links li a:link::before,
+ul.header__main-nav--links li a:visited::before,
+ul.header__main-nav--links li a:link::after,
+ul.header__main-nav--links li a:visited::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%; /* the anchor tag is the child of the li*/
+  height: 0.25rem;
+  background-color: white;
+  transform: scaleX(0);
+  transition: transform 0.6s cubic-bezier(1,0,0,1);
+}
+
+ul.header__main-nav--links li a:link::before,
+ul.header__main-nav--links li a:visited::before{
+  top:0;
+ /* transform origin is default center */
+ transform-origin: left;
+}
+
+ul.header__main-nav--links li a:link::after,
+ul.header__main-nav--links li a:visited::after{
+  bottom: 0;
+  transform-origin: right;
+}
+
+ul.header__main-nav--links li a:hover::before,
+ul.header__main-nav--links li a:visited::before,
+ul.header__main-nav--links li a:hover::after,
+ul.header__main-nav--links li a:visited::after{
+  transform: scaleX(1);
+}
+
+/********* Showcase / Hero Section ********/
+section#showcase {
+  height: 100vh;
+  background-image: url('img/book_cafe.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+div.showcase__content {
+  background-color:var(--secondary-color-m);
+  padding: calc(1rem + 2vw);
+  height: calc(5rem + 20vmax);
+  /*
+  vmax - takes into consieration whichever  viewport unit is the maximum
+  vw - viewport width
+  */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /*  animation: 'name' 'duration'*/
+  animation: hero 2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+/*  DO NOT ADD TOO MUCH THINGS HERE IF YOU WANT A GOOD WEBSITE  */
+@keyframes hero {
+  0% { /*  At first: div is on the right far away  */
+    transform: translateX(100rem) rotate(360deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.showcase__content--title {
+  font-size: calc(2rem + 3vw);
+  color: white;
+}
+
+.showcase__content--para {
+  font-family: "Indie Flower", cursive;
+  font-size: calc(1.5rem + 1vw);
+  color: white;
+}
+
+.showcase__content--link:link,
+.showcase__content--link:visited  {
+  padding: 1rem 0;
+  transition: all 0.5s ease-in-out;
+  width: 9rem;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 600;
+  position: relative;
+  z-index: 1; /*  This has to be here to show tranformation on .showcase__content--link  */
+}
+
+.showcase__content--link:link::after,
+.showcase__content--link:visited::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--primary-color);
+  transform: scaleX(0); /*  scaleX because it's coming from the left  */
+  transform-origin: right; /*  by default the transfromation should end at right  */
+  transition: transform 0.45s cubic-bezier(0.645, 0.045, 0.355, 1);
+  z-index: -1; /*  stacking order of our elements on our screen. What should come first? */
+}
+
+.showcase__content--link:hover::after,
+.showcase__content--link:active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/********* Work Section ********/
+section#work {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2rem;
+  background-color: var(--tertiary-color);
+}
+
+div.work__card {
+  padding: 2rem;
+  /* SET THE ORIGINAL SIZE OF THE FLEX ITEMS  */
+  flex-basis: 40rem;
+  flex-grow: 1;
+  clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+}
+
+div.work__card img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: filter 0.45s ease;
+}
+
+div.work__card img:hover,
+div.work__card img:active{
+  filter: sepia(80%);
+}
+
+section#about-me {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2rem;
+  background-color: var(--secondary-color);
+}
+
+.about-me__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-me__img,
+.about-me__content {
+  flex-basis: 40rem;
+  padding: 2rem;
+  flex-grow: 1;
+}
+
+.about-me__content--title {
+  font-size: 4rem;
+  padding: 1rem 0;
+  color: white;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.about-me__content--title:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0.3rem;
+  width:10%;
+  background-color: var(--primary-color);
+}
+
+.about-me__content--title,
+.about-me__content--para {
+  margin-bottom: 4rem;
+  
+}
+
+
+/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* (max-width:900px Mark) -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+@media screen and (max-width:900px) {
+  /*  SHOWCASE SECTION  */
+  section#showcase {
+    align-items: flex-end;
+  }
+}
+/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* (max-width:610px Mark) -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+@media screen and (max-width:610px) {
+  header#header {
+    position: absolute;
+  }
+  nav#header__main-nav {
+    width: 30rem;
+    height: 100%;
+    position: fixed;
+    top:0 ;
+    right: -30rem; /* by default hidden */
+    background-color: var(--secondary-color);
+    text-align: center;
+  }
+
+  .clicked {
+    left: 55%;
+  }
+  
+  .header__main-nav--hamburger {
+    width: 5rem;
+    height: 5rem;
+    position: fixed;
+    top: 2rem;
+    right: 3rem;
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .line {
+    width: 100%;
+    height: 0.3rem;
+    background-color: white;
+    border-radius: 0.2rem;
+    transition: all 0.4s ease-in-out;
+  }
+  
+  ul.header__main-nav--links {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  ul.header__main-nav--links li {
+    margin-bottom: 4vh;
+    margin-left: 6vw;
+  }
+/*   Transformation for main nav  */
+/*   LINES   */
+  .clicked .line-1{
+    transform: rotateZ(-405deg) translate(-0.8rem, 0.6rem);
+  }
+  .clicked .line-2{
+    opacity: 0;
+  }
+  .clicked .line-3{
+    transform: rotateZ(405deg) translate(-0.8rem, -0.6rem);
+  }
+  /*  Transition of main-nav links */
+  ul.header__main-nav--links li {
+    opacity: 0;
+  }
+
+  ul.header__main-nav--links li:nth-child(1) {
+    transition: all 0.5s ease-in-out 0.2s;
+  }
+  ul.header__main-nav--links li:nth-child(2) {
+    transition: all 0.5s ease-in-out 0.4s;
+  }
+  ul.header__main-nav--links li:nth-child(3) {
+    transition: all 0.5s ease-in-out 0.6s;
+  }
+  ul.header__main-nav--links li:nth-child(4) {
+    transition: all 0.5s ease-in-out 0.8s;
+  }
+  
+  ul.header__main-nav--links li.fade { /*fade- dynamic class*/
+    opacity: 1;
+  }
+}
