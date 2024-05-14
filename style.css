@@ -435,6 +435,18 @@ section#skills {
   animation: design-1 4s infinite cubic-bezier(1, 0, 0, 1);
 }
 
+/*  ------------------------ TESTIMONIALS SECTION ------------------------ */
+
+section#testimonials {
+  padding: calc(1rem + 2vw);
+  background-color: var(--secondary-color);
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 @keyframes design-1 {
   0% {
     width: 0;
