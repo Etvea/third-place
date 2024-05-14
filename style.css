@@ -318,18 +318,6 @@ section#about-me {
   margin-bottom: 4rem;
 }
 
-/* .services--title,*/
-.skills__design--title,
-.skills__coding--title {
-  font-size: calc(1.2rem +2vw);
-}
-
-/*.services--para,*/
-.skills__design h4,
-.skills__coding h4 {
-  font-size: calc(0.8rem + 1.5vw);
-}
-
 /*  -------------------------- SERVICES SECTION -------------------------- */
 section#services {
   display: flex;
@@ -374,6 +362,22 @@ section#services {
 .service i,
 .service .services--title {
   margin-bottom: 2rem;
+  font-size: 3rem;
+}
+
+.service i {
+  font-size: 3rem;
+  color: white;
+}
+
+.services--title {
+  text-transform: uppercase;
+}
+
+.services--para {
+  font-family: "Indie Flower", cursive;
+  font-size: 2rem;
+  color: white;
 }
 
 /*  --------------------------- SKILLS SECTION --------------------------- */
@@ -624,5 +628,26 @@ section#skills {
   ul.header__main-nav--links li.fade {
     /*fade- dynamic class*/
     opacity: 1;
+  }
+  /* Services */
+  section#services {
+    padding: 6rem 3rem 2rem;
+  }
+
+  .service {
+    padding: calc(1rem + 2vw);
+    margin: 0 0 calc(1rem + 2vw);
+  }
+
+  .services--title,
+  .skills__design--title,
+  .skills__coding--title {
+    font-size: calc(1.2rem + 2vw);
+  }
+
+  .services--para,
+  .skills__design h4,
+  .skills__coding h4 {
+    font-size: calc(0.8rem + 1.5vw);
   }
 }
