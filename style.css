@@ -521,6 +521,14 @@ section#skills {
 .skills__coding--progress__4 {
   animation: coding-4 4s infinite cubic-bezier(1, 0, 0, 1);
 }
+@keyframes coding-4 {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 90%;
+  }
+}
 
 /*  ------------------------ TESTIMONIALS SECTION ------------------------ */
 
@@ -589,14 +597,51 @@ section#testimonials {
   filter: grayscale(40%);
 }
 
-@keyframes coding-4 {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 90%;
-  }
+/*  ------------------------ CONTACT SECTION ------------------------ */
+section#contact {
+  height: 100vh;
+  background-image: url("img/book_cafe.jpg");
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
+
+.contact__form {
+  flex-basis: 40rem;
+
+  display: flex;
+  flex-direction: column;
+  background-color: var(--tertiary-color-m);
+}
+
+.contact__form input,
+.contact__form textarea {
+  color: white;
+  font-family: "Indie Flower", cursive;
+  font-size: 1.5rem;
+  letter-spacing: 0.2rem;
+  padding: 2rem;
+  background: transparent;
+  border: none;
+  border-bottom: var(--secondary-color) solid 0.1rem;
+}
+
+.contact__form textarea {
+  height: 30vh;
+}
+
+/* */
+input[type="submit"] {
+  border: none;
+  cursor: pointer;
+}
+
 /*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* (max-width:1510px Mark) -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
 @media screen and (min-width: 1510px) {
   body {
