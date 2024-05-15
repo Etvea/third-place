@@ -16,8 +16,8 @@
   --primary-color: #335c67;
   --secondary-color: #e09f3e;
   --secondary-color-m: #e09f3ede;
-  --tertiary-color: #c297b8;
-  --tertiary-color-m: #ed97b88e;
+  --tertiary-color: #ab3666;
+  --tertiary-color-m: #bd6288;
 }
 
 body {
@@ -614,7 +614,6 @@ section#contact {
 
 .contact__form {
   flex-basis: 40rem;
-
   display: flex;
   flex-direction: column;
   background-color: var(--tertiary-color-m);
